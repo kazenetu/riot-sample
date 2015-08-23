@@ -1,5 +1,6 @@
 # riot-sample
 Riot.jsを使ってみました
+[実装サンプルのデモ](http://kazenetu.github.io/riot-sample/)
 
 ## ビルド方法
   * Node.jsでビルドする場合  
