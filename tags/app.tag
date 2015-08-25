@@ -4,7 +4,7 @@
   <h1>{ opts.heading }</h1>
   <form onsubmit="{ add }">
     <input>
-    <button class="btn btn-default">Add #{ items.length + 1 }</button>
+    <button id="add" class="btn btn-default">Add #{ items.length + 1 }</button>
   </form>
   <ul>
     <todo-item each="{ item, i in items }" title="{ item.title }" index="{i}"></todo-item>

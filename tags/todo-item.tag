@@ -2,9 +2,9 @@
   <li>
     <span id='item_display{opts.index}' hide='{this.isEdit}'>{ opts.title }</span>
     <input  id = "item_text{opts.index}" show='{this.isEdit}'  type="text" value="{ opts.title }"></input>
-    <button class="btn btn-default" hide='{this.isEdit}' onclick='{edit}'>Edit</button>
-    <button class="btn btn-default" show='{this.isEdit}' onclick='{send}'>OK</button>
-    <button class="btn btn-default" show='{this.isEdit}' onclick='{cancel}'>Cancel</button>
+    <button id = "item_edit{opts.index}" class="btn btn-default" hide='{this.isEdit}' onclick='{edit}'>Edit</button>
+    <button id = "item_ok{opts.index}" class="btn btn-default" show='{this.isEdit}' onclick='{send}'>OK</button>
+    <button id = "item_cancel{opts.index}" class="btn btn-default" show='{this.isEdit}' onclick='{cancel}'>Cancel</button>
   </li>
 
   <script>
