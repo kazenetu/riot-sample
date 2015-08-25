@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Riot todo</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+  </head>
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+
+    <div  class="container">
+        <div id="app" riot-tag="app"></div>
+    </div>
+
+    <script src="riot_compiler.js"></script>
+    <script src="../tags/app.tag" type="riot/tag"></script>
+    <script src="../tags/todo-item.tag" type="riot/tag"></script>
+    <script>
+        var obs = riot.observable();
+        riot.mount('*',{useTag:true});
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- test -->
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script>
+        ;mocha.setup('bdd');
+        chai.should();
+    </script>
+
+    <div id="mocha"></div>
+
+    <script>
+        describe('初期表示', function () {
+            it('ボタン名称', function () {
+                $('#add')[0].innerText.should.equal('Add #1');
+            });
+        });
+        describe('ボタンクリック', function () {
+            it('Addボタン', function () {
+                $('#add')[0].click();
+                $('#add')[0].innerText.should.equal('Add #2');
+            });
+            it('Editボタン', function () {
+                $('#item_edit0')[0].click();
+
+                $('#item_edit0:hidden').length.should.equal(1);
+                $('#item_ok0:visible').length.should.equal(1);
+                $('#item_cancel0:visible').length.should.equal(1);
+
+                $('#item_ok0')[0].click();
+            });
+            it('OKボタン', function () {
+                $('#item_display0')[0].innerText.should.equal("");
+                $('#item_edit0')[0].click();
+                $('#item_text0')[0].value = 'test';
+                $('#item_ok0')[0].click();
+
+                $('#item_display0')[0].innerText.should.equal("test");
+                $('#item_edit0:visible').length.should.equal(1);
+                $('#item_ok0:hidden').length.should.equal(1);
+                $('#item_cancel0:hidden').length.should.equal(1);
+            });
+            it('Cancelボタン', function () {
+                $('#item_display0')[0].innerText.should.equal("test");
+                $('#item_edit0')[0].click();
+                $('#item_text0')[0].value = 'cancel';
+                $('#item_cancel0')[0].click();
+
+                $('#item_display0')[0].innerText.should.equal("test");
+                $('#item_edit0:visible').length.should.equal(1);
+                $('#item_ok0:hidden').length.should.equal(1);
+                $('#item_cancel0:hidden').length.should.equal(1);
+            });
+        });
+    </script>
+
+    <script>
+      setTimeout(function(){
+        mocha.run();
+      },1000);
+    </script>
+    <!-- test -->
+  </body>
+</html>

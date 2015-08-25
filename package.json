@@ -8,6 +8,9 @@
 	"keywords": "riot.js",
 	"devDependencies":{
 		"gulp": "*",
-		"gulp-riot": "0.2.14"
+		"gulp-riot": "0.2.14",
+		"gulp-mocha-phantomjs": "*",
+		"mocha": "*",
+		"chai": "*"
 	}
 }

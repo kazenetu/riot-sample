@@ -6,6 +6,7 @@ Riot.jsを使ってみました
   * Node.jsでビルドする場合  
 npm installした上で、下記を実行してください。  
    * ```gulp``` tagファイルのビルドをします
+   * ```gulp test``` tagファイルのテストをします
 
 ## License
 MIT license.
