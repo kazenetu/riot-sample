@@ -11,6 +11,7 @@
 		"gulp-riot": "0.2.14",
 		"gulp-mocha-phantomjs": "*",
 		"mocha": "*",
-		"chai": "*"
+		"chai": "*",
+		"gulp-webserver": "*"
 	}
 }
